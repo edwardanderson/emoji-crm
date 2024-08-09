@@ -39,7 +39,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         <👩🏿> ,    # woman dark skin tone
         <👩‍🚒> ,    # woman firefighter
         <🧑‍🚒> ;  # firefighter
-    crm:P165i_is_incorporated_in <people-and-body> ;
+    crm:P148i_is_component_of <people-and-body>
     crm:P190_has_symbolic_content "👩🏿‍🚒" ;
     crm:P199_represents_instance_of_type <https://vocab.getty.edu/aat/300025862> ;
 .
@@ -52,7 +52,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 <people-and-body>
     a crm:E73_Information_Object ;
     rdfs:label "People & Body" ;
-    crm:P165_incorporates <👩🏿‍🚒> ;
+    crm:P148_has_component <👩🏿‍🚒> ;
     crm:P129_is_about
         <https://vocab.getty.edu/aat/300024979> ,
         <https://vocab.getty.edu/aat/300404640> ;

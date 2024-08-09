@@ -9,7 +9,7 @@ CONSTRUCT {
         crm:P1_is_identified_by ?Name ;
         crm:P2_has_type ?Type ;
         crm:P106_is_composed_of ?EmojiStrPart ;
-        crm:P165i_is_incorporated_in ?Collection ;
+        crm:P148i_is_component_of ?Collection ;
         crm:P190_has_symbolic_content ?EmojiStr .
 
     ?Name a crm:E33_E41_Linguistic_Appellation ;
@@ -23,7 +23,7 @@ CONSTRUCT {
         rdfs:label ?LangLabel .
 
     ?Collection a crm:E73_Information_Object ;
-        crm:P165_incorporates ?Emoji .
+        crm:P148_has_component ?Emoji .
 }
 WHERE {
     ?Emoji a skos:Concept ;

@@ -11,8 +11,8 @@ construct = path.read_text()
 result = EMOJI_SKOS.query(construct)
 
 EMOJI_CRM = result.graph
-EMOJI_CRM.bind('crm', 'http://www.cidoc-crm.org/cidoc-crm/')
 CRM = Namespace('http://www.cidoc-crm.org/cidoc-crm/')
+EMOJI_CRM.bind('crm', CRM)
 
 # # crm:P106_is_composed_of
 for emoji in EMOJI_SKOS.subjects(RDF.type, SKOS.Concept, unique=True):

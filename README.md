@@ -2,6 +2,9 @@
 
 Dataset of emojis represented in [CIDOC-CRM](https://cidoc-crm.org/) as an [`rdflib.Graph`](https://rdflib.readthedocs.io/en/stable/apidocs/rdflib.html#rdflib.Graph). It is based on [Emoji SKOS](https://github.com/edwardanderson/emoji-skos).
 
+> [!WARNING]
+> Emoji CRM is an on-going research project and is not yet ready for use in production.
+
 ## Quickstart
 
 ```bash
