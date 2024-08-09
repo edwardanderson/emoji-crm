@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "emoji-crm"
 urls = { project-url = "https://github.com/edwardanderson/emoji-crm" }
 dependencies = [
-    #"emoji-skos",
+    "emoji-skos@git+https://github.com/edwardanderson/emoji-skos",
     "rdflib"
 ]
 dynamic = ["version"]
