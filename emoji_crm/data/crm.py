@@ -9,7 +9,7 @@ from rdflib.namespace import RDF
 path = Path(__file__).parent / 'skos_to_crm.rq'
 construct = path.read_text()
 
-# This SPARQL query is very slow.
+# This SPARQL transformation is very slow.
 result = EMOJI_SKOS.query(construct)
 
 EMOJI_CRM = result.graph
@@ -30,7 +30,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
         EMOJI_CRM.add((emoji, CRM.P106_is_composed_of, part))
         EMOJI_CRM.add((part, CRM.P106_forms_part_of, emoji))
 
-    # :skin-tone-modified-profession crm:P130_shows_features_of :gendered-person.
+    # :skin-tone-modified-profession crm:P130_shows_features_of :(un)gendered-person.
     pattern = r'^(.[🏻🏼🏽🏾🏿])\u200D.$'
     for group in re.findall(pattern, emoji, flags=re.UNICODE):
         person = URIRef(group)
@@ -39,7 +39,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
             # inverse.
             EMOJI_CRM.add((person, CRM.P130i_features_are_alos_found_on, emoji))
 
-    # :skin-tone-modified-profession crm:P130_shows_features_of :gendered-profession.
+    # :skin-tone-modified-profession crm:P130_shows_features_of :(un)gendered-profession.
     pattern = r'^(.)[🏻🏼🏽🏾🏿]\u200D(.)$'
     for group in re.findall(pattern, emoji, flags=re.UNICODE):
         profession = group[0] + '\u200D' + group[1]
@@ -49,7 +49,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
             # inverse.
             EMOJI_CRM.add((profession, CRM.P130i_features_are_also_found_on, emoji))
 
-    # :gendered-profession crm:P130_shows_features_of :profession.
+    # :gendered-profession crm:P130_shows_features_of :ungendered-profession.
     pattern = r'^[👨👩]\u200D(.)$'
     for group in re.findall(pattern, emoji, flags=re.UNICODE):
         profession = '🧑' + '\u200D' + group[0]
