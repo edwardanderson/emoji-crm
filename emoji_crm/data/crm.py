@@ -68,6 +68,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
             if represented:
                 profession, label = represented
                 EMOJI_CRM.add((emoji, CRM.P199_represents_instance_of_type, profession))
+                EMOJI_CRM.add((profession, RDF.type, CRM.E55_Type))
                 EMOJI_CRM.add((profession, RDFS.label, Literal(label)))
 
 if __name__ == '__main__':
