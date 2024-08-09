@@ -49,7 +49,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
             # inverse.
             EMOJI_CRM.add((profession, CRM.P130i_features_are_also_found_on, emoji))
 
-    # gendered-profession crm:P130_shows_features_of :profession.
+    # :gendered-profession crm:P130_shows_features_of :profession.
     pattern = r'^[👨👩]\u200D(.)$'
     for group in re.findall(pattern, emoji, flags=re.UNICODE):
         profession = '🧑' + '\u200D' + group[0]
