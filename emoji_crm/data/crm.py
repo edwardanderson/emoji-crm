@@ -63,13 +63,16 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
     # crm:P199_represents_instance_of_type
     for name, data in ALIGNMENTS.items():
         pattern = data['pattern']
-        for group in re.findall(pattern, emoji, flags=re.UNICODE):
+        flags = data['flags']
+        for group in re.findall(pattern, emoji, flags=flags):
+            # print(name, emoji, group)
             represented = data['alignments'].get(group)
             if represented:
-                profession, label = represented
-                EMOJI_CRM.add((emoji, CRM.P199_represents_instance_of_type, profession))
-                EMOJI_CRM.add((profession, RDF.type, CRM.E55_Type))
-                EMOJI_CRM.add((profession, RDFS.label, Literal(label)))
+                (resource, label) = represented
+                # print(f'\t{resource}')
+                EMOJI_CRM.add((emoji, CRM.P199_represents_instance_of_type, resource))
+                EMOJI_CRM.add((resource, RDF.type, CRM.E55_Type))
+                EMOJI_CRM.add((resource, RDFS.label, Literal(label)))
 
 if __name__ == '__main__':
     print(EMOJI_CRM.serialize(format='longturtle'))

@@ -1,3 +1,5 @@
+import re
+
 from rdflib.namespace import Namespace
 
 
@@ -7,6 +9,7 @@ WD = Namespace('http://www.wikidata.org/entity/')
 ALIGNMENTS = {
     'professions': {
         'pattern': r'^[🧑👨👩][🏻🏼🏽🏾🏿]?\u200D(.)$',
+        'flags': re.UNICODE,
         'alignments': {
             '⚕️':  (WD['Q87285943'], 'health professional'),
             '⚖️':  (AAT['300025625'], 'judges'),
@@ -27,9 +30,10 @@ ALIGNMENTS = {
         }
     },
     'gender_alternates': {
-        'pattern': r'^(.)(?=\uFE0F\u200D[♀️♂️]\uFE0F)?',
+        'pattern': r'^(.)[🏻🏼🏽🏾🏿]?\u200D?[♀️♂️]?',
+        'flags': re.UNICODE,
         'alignments': {
-            '🕵️': (AAT['300136450'], 'detectives'),
+            '🕵': (AAT['300136450'], 'detectives'),
             '👷': (AAT['300025001'], 'construction workers'),
             '👮': (AAT['300025867'], 'police officers'),
             '💂': (AAT['300185678'], 'soldiers')
@@ -37,10 +41,23 @@ ALIGNMENTS = {
     },
     'gendered_professions': {
         'pattern': r'^(.)$',
+        'flags': 0,
         'alignments': {
             '🤴': (AAT['300025482'], 'princes (rulers)'),
             '👸': (AAT['300155241'], 'princesses'),
             '🫅': (AAT['300025475'], 'rulers')
+        }
+    },
+    'fruits': {
+        'pattern': r'^(.)(?:\u200D.)?$',
+        'flags': re.UNICODE,
+        'alignments': {
+            '🍇': (AAT['300379338'], 'grapes (berry fruit)'),
+            '🍈': (AAT['300266444'], 'melon (fruit)'),
+            # '🍉': (),
+            # '🍊': (),
+            '🍋': (AAT['300266423'], 'lemons (fruits)'),
+            '🍋‍🟩': (AAT['300266424'], 'limes (fruits)')
         }
     }
 }
