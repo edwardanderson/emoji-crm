@@ -47,11 +47,37 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         <👩🏽> ;
     crm:P148i_is_component_of <people-and-body> ;
     crm:P190_has_symbolic_content "👩🏽‍🚀" ;
+    crm:P199_represents_instance_of_type <https://vocab.getty.edu/aat/300380152> ;
     crm:P1_is_identified_by
+        [
+            a crm:E33_E41_Linguistic_Appellation ;
+            crm:P190_has_symbolic_content "antariksawan wanita warna kulit sedang" ;
+            crm:P72_has_language <https://vocab.getty.edu/aat/300388460> ;
+        ] ,
+        [
+            a crm:E33_E41_Linguistic_Appellation ;
+            crm:P190_has_symbolic_content "astronautin mittlere hautfarbe" ;
+            crm:P72_has_language <https://vocab.getty.edu/aat/300388344> ;
+        ] ,
+        [
+            a crm:E33_E41_Linguistic_Appellation ;
+            crm:P190_has_symbolic_content "رائدة فضاء بشرة بلون معتدل" ;
+            crm:P72_has_language <https://vocab.getty.edu/aat/300387843> ;
+        ] ,
+        [
+            a crm:E33_E41_Linguistic_Appellation ;
+            crm:P190_has_symbolic_content "женщина космонавт средний тон кожи" ;
+            crm:P72_has_language <https://vocab.getty.edu/aat/300389168> ;
+        ] ,
         [
             a crm:E33_E41_Linguistic_Appellation ;
             crm:P190_has_symbolic_content "여자 우주비행사 갈색 피부" ;
             crm:P72_has_language <https://vocab.getty.edu/aat/300388633> ;
+        ] ,
+        [
+            a crm:E33_E41_Linguistic_Appellation ;
+            crm:P190_has_symbolic_content "astronauta mujer tono de piel medio" ;
+            crm:P72_has_language <https://vocab.getty.edu/aat/300389311> ;
         ] ,
         [
             a crm:E33_E41_Linguistic_Appellation ;
@@ -65,11 +91,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         ] ,
         [
             a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "astronauta mujer tono de piel medio" ;
-            crm:P72_has_language <https://vocab.getty.edu/aat/300389311> ;
-        ] ,
-        [
-            a crm:E33_E41_Linguistic_Appellation ;
             crm:P190_has_symbolic_content "astronaute femme peau légèrement mate" ;
             crm:P72_has_language <https://vocab.getty.edu/aat/300388306> ;
         ] ,
@@ -80,11 +101,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         ] ,
         [
             a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "astronautin mittlere hautfarbe" ;
-            crm:P72_has_language <https://vocab.getty.edu/aat/300388344> ;
-        ] ,
-        [
-            a crm:E33_E41_Linguistic_Appellation ;
             crm:P190_has_symbolic_content "astronauta donna carnagione olivastra" ;
             crm:P72_has_language <https://vocab.getty.edu/aat/300388474> ;
         ] ,
@@ -92,21 +108,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             a crm:E33_E41_Linguistic_Appellation ;
             crm:P190_has_symbolic_content "女宇航员 中等肤色" ;
             crm:P72_has_language <https://vocab.getty.edu/aat/300388113> ;
-        ] ,
-        [
-            a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "antariksawan wanita warna kulit sedang" ;
-            crm:P72_has_language <https://vocab.getty.edu/aat/300388460> ;
-        ] ,
-        [
-            a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "женщина космонавт средний тон кожи" ;
-            crm:P72_has_language <https://vocab.getty.edu/aat/300389168> ;
-        ] ,
-        [
-            a crm:E33_E41_Linguistic_Appellation ;
-            crm:P190_has_symbolic_content "رائدة فضاء بشرة بلون معتدل" ;
-            crm:P72_has_language <https://vocab.getty.edu/aat/300387843> ;
         ] ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300412189> ;
 .
