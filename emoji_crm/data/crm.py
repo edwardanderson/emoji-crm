@@ -37,7 +37,7 @@ for emoji in EMOJI_CRM.subjects(RDF.type, CRM.E37_Mark, unique=True):
         if emoji != person:
             EMOJI_CRM.add((emoji, CRM.P130_shows_features_of, person))
             # inverse.
-            EMOJI_CRM.add((person, CRM.P130i_features_are_alos_found_on, emoji))
+            EMOJI_CRM.add((person, CRM.P130i_features_are_also_found_on, emoji))
 
     # :skin-tone-modified-profession crm:P130_shows_features_of :(un)gendered-profession.
     pattern = r'^(.)[🏻🏼🏽🏾🏿]\u200D(.)$'
