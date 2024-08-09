@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools >= 66.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "emoji-crm"
+urls = { project-url = "https://github.com/edwardanderson/emoji-crm" }
+dependencies = [
+    #"emoji-skos",
+    "rdflib"
+]
+dynamic = ["version"]
+
+[tool.setuptools.packages.find]
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
+
+[project.scripts]
+emoji-crm = "emoji_crm.cli.cli:main"

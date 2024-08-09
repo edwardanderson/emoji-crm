@@ -1,0 +1,64 @@
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CONSTRUCT {
+    ?Emoji a crm:E37_Mark ;
+        rdfs:label ?Label ;
+        crm:P1_is_identified_by ?Name ;
+        crm:P2_has_type ?Type ;
+        crm:P106_is_composed_of ?EmojiStrPart ;
+        crm:P165i_is_incorporated_in ?Collection ;
+        crm:P190_has_symbolic_content ?EmojiStr .
+
+    ?Name a crm:E33_E41_Linguistic_Appellation ;
+        crm:P72_has_language ?Language ;
+        crm:P190_has_symbolic_content ?AltLabelStr .
+
+    ?Type a crm:E55_Type ;
+        rdfs:label "emoji" .
+
+    ?Language a crm:E56_Language ;
+        rdfs:label ?LangLabel .
+
+    ?Collection a crm:E73_Information_Object ;
+        crm:P165_incorporates ?Emoji .
+}
+WHERE {
+    ?Emoji a skos:Concept ;
+        dc:identifier ?Identifier .
+
+    BIND(STR(?Emoji) AS ?EmojiStr)
+    BIND(CONCAT(?EmojiStr, " ", STR(?Identifier)) AS ?Label)
+    BIND(<http://vocab.getty.edu/aat/300412189> as ?Type)
+
+    OPTIONAL {
+        ?Emoji skos:altLabel ?AltLabel .
+
+        BIND(LANG(?AltLabel) as ?BCP47)
+        BIND(STR(?AltLabel) AS ?AltLabelStr)
+        BIND(BNODE() AS ?Name)
+
+        VALUES (?BCP47 ?Language ?LangLabel) {
+            ("ar" <https://vocab.getty.edu/aat/300387843> "Arabic")
+            ("de" <https://vocab.getty.edu/aat/300388344> "German")
+            ("en" <https://vocab.getty.edu/aat/300388277> "English")
+            ("es" <https://vocab.getty.edu/aat/300389311> "Spanish")
+            # fa
+            ("fr" <https://vocab.getty.edu/aat/300388306> "French")
+            ("id" <https://vocab.getty.edu/aat/300388460> "Indonesian")
+            ("it" <https://vocab.getty.edu/aat/300388474> "Italian")
+            ("ja" <https://vocab.getty.edu/aat/300388486> "Japanese")
+            ("ko" <https://vocab.getty.edu/aat/300388633> "Korean")
+            # pt
+            ("ru" <https://vocab.getty.edu/aat/300389168> "Russian")
+            ("tr" <https://vocab.getty.edu/aat/300389470> "Turkish")
+            ("zh" <https://vocab.getty.edu/aat/300388113> "Chinese")
+        }
+    }
+
+    OPTIONAL {
+        ?Collection skos:member ?Emoji .
+    }
+}
