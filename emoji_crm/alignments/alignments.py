@@ -1,5 +1,3 @@
-import re
-
 from rdflib.namespace import Namespace
 
 
@@ -9,7 +7,6 @@ WD = Namespace('http://www.wikidata.org/entity/')
 ALIGNMENTS = {
     'professions': {
         'pattern': r'^[🧑👨👩][🏻🏼🏽🏾🏿]?\u200D(.)$',
-        'flags': re.UNICODE,
         'alignments': {
             '⚕️':  (WD['Q87285943'], 'health professional'),
             '⚖️':  (AAT['300025625'], 'judges'),
@@ -30,34 +27,39 @@ ALIGNMENTS = {
         }
     },
     'gender_alternates': {
-        'pattern': r'^(.)[🏻🏼🏽🏾🏿]?\u200D?[♀️♂️]?',
-        'flags': re.UNICODE,
+        'pattern': r'^(.)[🏻🏼🏽🏾🏿]?\uFE0F?\u200D?[♀️♂️]?',
         'alignments': {
             '🕵': (AAT['300136450'], 'detectives'),
             '👷': (AAT['300025001'], 'construction workers'),
             '👮': (AAT['300025867'], 'police officers'),
-            '💂': (AAT['300185678'], 'soldiers')
-        }
-    },
-    'gendered_professions': {
-        'pattern': r'^(.)$',
-        'flags': 0,
-        'alignments': {
+            '💂': (AAT['300185678'], 'soldiers'),
             '🤴': (AAT['300025482'], 'princes (rulers)'),
             '👸': (AAT['300155241'], 'princesses'),
-            '🫅': (AAT['300025475'], 'rulers')
+            '🫅':  (AAT['300025475'], 'rulers')
         }
     },
     'fruits': {
-        'pattern': r'^(.)(?:\u200D.)?$',
-        'flags': re.UNICODE,
+        'pattern': r'^(.\u200D?.?)?$',
         'alignments': {
             '🍇': (AAT['300379338'], 'grapes (berry fruit)'),
             '🍈': (AAT['300266444'], 'melon (fruit)'),
-            # '🍉': (),
-            # '🍊': (),
+            '🍉': (),
+            '🍊': (),
             '🍋': (AAT['300266423'], 'lemons (fruits)'),
-            '🍋‍🟩': (AAT['300266424'], 'limes (fruits)')
+            '🍋‍🟩': (AAT['300266424'], 'limes (fruits)'),
+            '🍌': (AAT['300266434'], 'bananas (fruits)'),
+            '🍍': (AAT['300375583'], 'pineapple (fruit)'),
+            '🥭': (AAT['300266436'], 'mangoes (fruits)'),
+            '🍎': (AAT['300266417'], 'apples (fruits)'),
+            '🍏': (AAT['300266417'], 'apples (fruits)'),
+            '🍐': (AAT['300435353'], 'pears'),
+            '🍑': (AAT['300266272'], 'peaches (fruits)'),
+            '🍒': (AAT['300440730'], 'cherries (fruits)'),
+            '🍓': (AAT['300375414'], 'strawberries (fruits)'),
+            '🫐': (AAT['300375417'], 'blueberries (fruit)'),
+            '🥝': (),
+            '🍅': (AAT['300266435'], 'tomato'),
+            '🫒': (AAT['300266440'], 'olives (fruits)')
         }
     }
 }
